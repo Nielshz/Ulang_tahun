@@ -90,10 +90,11 @@ export default function App() {
     <div className="min-h-screen bg-[#0a0118] flex flex-col items-center justify-center overflow-hidden relative font-sans text-center px-4">
       
       {/* Audio Element */}
-      <audio ref={audioRef} loop>
-        <source src="https://upload.wikimedia.org/wikipedia/commons/6/69/12_-_Happy_Birthday.ogg" type="audio/ogg" />
-      </audio>
-
+<audio ref={audioRef} loop>
+  {/* Menggunakan link MP3 instrumen yang lebih stabil */}
+  <source src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Chapter_One__Cold/Kai_Engel_-_04_-_Moonlight_Reprise.mp3" type="audio/mpeg" />
+</audio>
+      
       {/* Floating Music Button */}
       <button 
         onClick={toggleMusic} 
