@@ -66,39 +66,45 @@ export default function App() {
     }, 250);
   };
 
-  const handleCakeClick = () => {
+  
+  return (
+    <div className="min-h-screen bg-[#0a0118] flex flex-col items-center justify-center overflow-hidden relative font-sans text-center px-4">
+      
+      
+      {/* Floating Music Button */}
+      <button 
+        onClick={toggleMusic} 
+        className="fixed top-6 right-6 z-50 p-3 bg-white/5 backdrop-blur-md rounded-full border border-white/20 text-white/80 hover:text-white hover:bg-white/10 transition-colors shadow-lg cursor-pointe  const handleCakeClick = () => {
     setCandlesBlown(true);
     triggerFireworks();
     
-    if (audioRef.current && !isPlaying) {
-      audioRef.current.play().then(() => setIsPlaying(true)).catch(e => console.log("Audio play prevented", e));
+    // Ini perintah buat muter musiknya
+    if (audioRef.current) {
+      audioRef.current.play()
+        .then(() => {
+          setIsPlaying(true);
+          console.log("Musik mulai!");
+        })
+        .catch(e => console.log("Gagal putar musik:", e));
     }
     
     if (canvasRef.current) {
       const myConfetti = confetti.create(canvasRef.current, { resize: true });
-      // Confetti burst from cake
       myConfetti({
-        particleCount: 150,
+        
+ {/* Audio Element */}
+<audio ref={audioRef} loop preload="auto">
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg" />
+</audio>
+
+    particleCount: 150,
         spread: 100,
         origin: { y: 0.6 },
         zIndex: 50
       });
     }
   };
-
-  return (
-    <div className="min-h-screen bg-[#0a0118] flex flex-col items-center justify-center overflow-hidden relative font-sans text-center px-4">
-      
-      {/* Audio Element */}
-<audio ref={audioRef} loop>
-  {/* Menggunakan link MP3 instrumen yang lebih stabil */}
-  <source src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Chapter_One__Cold/Kai_Engel_-_04_-_Moonlight_Reprise.mp3" type="audio/mpeg" />
-</audio>
-      
-      {/* Floating Music Button */}
-      <button 
-        onClick={toggleMusic} 
-        className="fixed top-6 right-6 z-50 p-3 bg-white/5 backdrop-blur-md rounded-full border border-white/20 text-white/80 hover:text-white hover:bg-white/10 transition-colors shadow-lg cursor-pointer"
+r"
       >
         {isPlaying ? <Volume2 size={24} /> : <VolumeX size={24} />}
       </button>
